@@ -20,7 +20,7 @@ function Global() {
 
         const intervalId = setInterval(() => {
             getData()
-        }, 60 * 200);
+        }, 60 * 5000);
 
         return () => clearInterval(intervalId);
 
