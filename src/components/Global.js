@@ -3,43 +3,25 @@ import axios from "axios";
 
 
 function Global() {
-    const [data, setData] = useState()
+    const [newConfirmed, setNewConfirmed] = useState()
+    const [totalConfirmed, setTotalConfirmed] = useState()
+    const [newDeaths, setNewDeaths] = useState()
+    const [totalDeaths, setTotalDeaths] = useState()
+    const [newRecovered, setNewRecovered] = useState()
+    const [totalRecovered, setTotalRecovered] = useState()
 
-    function getNewConfirmed() {
-        const options = {
-            method: 'GET',
-            url: 'https://api.covid19api.com/summary'
-        };
-
-        axios.request(options).then(function (response) {
-            let res = response.data["Global"]["NewConfirmed"];
-            setData(res)
-        }).catch(function (error) {
-            console.error(error);
-        });
-    }
-
-    useEffect(()=>{
-        getNewConfirmed()
-    },[])
-
-    /*function getTotalConfirmed() {
-        const options = {
-            method: 'GET',
-            url: 'https://api.covid19api.com/summary'
-        };
-
-        axios.request(options).then(function (response) {
-            let res = response.data["Global"]["TotalConfirmed"];
-            setData(res)
-        }).catch(function (error) {
-            console.error(error);
-        });
-    }
-
-    useEffect(()=>{
-        getTotalConfirmed()
-    },[])*/
+    useEffect(() => {
+        axios.get('https://api.covid19api.com/summary')
+            .then(response => {
+                setNewConfirmed(response.data["Global"]["NewConfirmed"]);
+                setTotalConfirmed(response.data["Global"]["TotalConfirmed"]);
+                setNewDeaths(response.data["Global"]["NewDeaths"]);
+                setTotalDeaths(response.data["Global"]["TotalDeaths"]);
+                setNewRecovered(response.data["Global"]["NewRecovered"]);
+                setTotalRecovered(response.data["Global"]["TotalRecovered"]);
+            })
+            .catch(console.error);
+    }, [])
 
     return (
         <div className="summary">
@@ -47,37 +29,37 @@ function Global() {
             <div className="newconfirmed">
                 <h2>New Confirmed Cases</h2>
                 <div className="box">
-                    <h3>{data}</h3>
+                    <h3>{newConfirmed}</h3>
                 </div>
             </div>
             <div className="totalconfirmed">
                 <h2>Total Confirmed Cases</h2>
                 <div className="box">
-                    <h3>{data}</h3>
+                    <h3>{totalConfirmed}</h3>
                 </div>
             </div>
             <div className="newdeaths">
                 <h2>New Deaths</h2>
                 <div className="box">
-                    <h3>1024</h3>
+                    <h3>{newDeaths}</h3>
                 </div>
             </div>
             <div className="totaldeaths">
                 <h2>Total Deaths</h2>
                 <div className="box">
-                    <h3>1024</h3>
+                    <h3>{totalDeaths}</h3>
                 </div>
             </div>
             <div className="newrecovered">
                 <h2>New Recovered</h2>
                 <div className="box">
-                    <h3>1024</h3>
+                    <h3>{newRecovered}</h3>
                 </div>
             </div>
             <div className="totalrecovered">
                 <h2>Total Recovered</h2>
                 <div className="box">
-                    <h3>1024</h3>
+                    <h3>{totalRecovered}</h3>
                 </div>
             </div>
         </div>
