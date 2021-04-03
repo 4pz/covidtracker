@@ -44,7 +44,7 @@ body {
     font-family: Calibri;
 }
 
-.newsconfirmed {
+.newconfirmed {
     display: flex;
     align-items: center;
     flex-direction: column;
