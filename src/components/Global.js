@@ -3,63 +3,66 @@ import axios from "axios";
 
 
 function Global() {
-    const [newConfirmed, setNewConfirmed] = useState()
-    const [totalConfirmed, setTotalConfirmed] = useState()
-    const [newDeaths, setNewDeaths] = useState()
-    const [totalDeaths, setTotalDeaths] = useState()
-    const [newRecovered, setNewRecovered] = useState()
-    const [totalRecovered, setTotalRecovered] = useState()
+    const [data, setData] = useState(0)
 
     useEffect(() => {
-        axios.get('https://api.covid19api.com/summary')
-            .then(response => {
-                setNewConfirmed(response.data["Global"]["NewConfirmed"]);
-                setTotalConfirmed(response.data["Global"]["TotalConfirmed"]);
-                setNewDeaths(response.data["Global"]["NewDeaths"]);
-                setTotalDeaths(response.data["Global"]["TotalDeaths"]);
-                setNewRecovered(response.data["Global"]["NewRecovered"]);
-                setTotalRecovered(response.data["Global"]["TotalRecovered"]);
-            })
-            .catch(console.error);
+
+        function getData() {
+            axios.get('https://api.covid19api.com/summary')
+                .then(response => {
+                    setData(response.data.Global);
+                    console.log("Updated")
+                })
+                .catch(console.error);
+        }
+
+        getData()
+
+        const intervalId = setInterval(() => {
+            getData()
+        }, 60 * 200);
+
+        return () => clearInterval(intervalId);
+
     }, [])
 
     return (
         <div className="summary">
             <h1>World Summary</h1>
             <div className="newconfirmed">
-                <h2>New Confirmed Cases</h2>
+                <h2>New Cases</h2>
                 <div className="box">
-                    <h3>{newConfirmed}</h3>
+                    <h3>{data.NewConfirmed}</h3>
                 </div>
             </div>
             <div className="totalconfirmed">
-                <h2>Total Confirmed Cases</h2>
+                <h2>Total Cases</h2>
                 <div className="box">
-                    <h3>{totalConfirmed}</h3>
+                    <h3>{data.TotalConfirmed}</h3>
                 </div>
             </div>
             <div className="newdeaths">
                 <h2>New Deaths</h2>
                 <div className="box">
-                    <h3>{newDeaths}</h3>
+                    <h3>{data.NewDeaths}</h3>
                 </div>
             </div>
             <div className="totaldeaths">
                 <h2>Total Deaths</h2>
                 <div className="box">
-                    <h3>{totalDeaths}</h3>
+                    <h3>{data.TotalDeaths}</h3>
                 </div>
             </div>
             <div className="newrecovered">
                 <h2>New Recovered</h2>
                 <div className="box">
-                    <h3>{newRecovered}</h3>
+                    <h3>{data.NewRecovered}</h3>
                 </div>
             </div>
             <div className="totalrecovered">
                 <h2>Total Recovered</h2>
                 <div className="box">
-                    <h3>{totalRecovered}</h3>
+                    <h3>{data.TotalRecovered}</h3>
                 </div>
             </div>
         </div>
