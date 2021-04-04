@@ -42,6 +42,16 @@ body {
     justify-content: center;
 }
 
+.Brazil {
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.France {
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
 .TopCountries h1 {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -71,7 +81,6 @@ body {
     transition: all 1s;
     margin-bottom: 40px;
     align-items: center;
-    margin-right: 40px;
 }
 
 .country-box:hover {
