@@ -40,42 +40,71 @@ function Global() {
     }*/
 
     return (
-        <div className="summary">
-            <h1>World Summary</h1>
-            <div className="newconfirmed">
-                <h2>New Cases</h2>
-                <div className="box">
-                    <h3>{data}</h3>
+        <div className="row">
+            <div className="summary">
+                <h1>World Cases</h1>
+                <div className="newconfirmed">
+                    <h2>New Cases</h2>
+                    <div className="box">
+                        <h3>{data}</h3>
+                    </div>
+                </div>
+                <div className="totalconfirmed">
+                    <h2>Total Cases</h2>
+                    <div className="box">
+                        <h3>{data1}</h3>
+                    </div>
+                </div>
+                <div className="newdeaths">
+                    <h2>New Deaths</h2>
+                    <div className="box">
+                        <h3>{data2}</h3>
+                    </div>
+                </div>
+                <div className="totaldeaths">
+                    <h2>Total Deaths</h2>
+                    <div className="box">
+                        <h3>{data3}</h3>
+                    </div>
+                </div>
+                <div className="newrecovered">
+                    <h2>New Recovered</h2>
+                    <div className="box">
+                        <h3>{data4}</h3>
+                    </div>
+                </div>
+                <div className="totalrecovered">
+                    <h2>Total Recovered</h2>
+                    <div className="box" style={{marginBottom: "20px"}}>
+                        <h3>{data5}</h3>
+                    </div>
                 </div>
             </div>
-            <div className="totalconfirmed">
-                <h2>Total Cases</h2>
-                <div className="box">
-                    <h3>{data1}</h3>
+            <div className="summary">
+                <h1>World Vaccines</h1>
+                <div className="newconfirmed">
+                    <h2>Doses Given</h2>
+                    <div className="box">
+                        <h3>{data}</h3>
+                    </div>
                 </div>
-            </div>
-            <div className="newdeaths">
-                <h2>New Deaths</h2>
-                <div className="box">
-                    <h3>{data2}</h3>
+                <div className="totalconfirmed">
+                    <h2>New Doses Given</h2>
+                    <div className="box">
+                        <h3>{data1}</h3>
+                    </div>
                 </div>
-            </div>
-            <div className="totaldeaths">
-                <h2>Total Deaths</h2>
-                <div className="box">
-                    <h3>{data3}</h3>
+                <div className="newdeaths">
+                    <h2>People Fully Vaccinated</h2>
+                    <div className="box">
+                        <h3>{data2}</h3>
+                    </div>
                 </div>
-            </div>
-            <div className="newrecovered">
-                <h2>New Recovered</h2>
-                <div className="box">
-                    <h3>{data4}</h3>
-                </div>
-            </div>
-            <div className="totalrecovered">
-                <h2>Total Recovered</h2>
-                <div className="box" style={{marginBottom: "20px"}}>
-                    <h3>{data5}</h3>
+                <div className="totaldeaths" style={{marginBottom: "20px"}}>
+                    <h2>% of People Fully Vaccinated</h2>
+                    <div className="box">
+                        <h3>{data3}</h3>
+                    </div>
                 </div>
             </div>
         </div>
