@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react"
 import axios from "axios";
 
-
 function Global() {
     const [data, setData] = useState(0)
 
@@ -61,7 +60,7 @@ function Global() {
             </div>
             <div className="totalrecovered">
                 <h2>Total Recovered</h2>
-                <div className="box">
+                <div className="box" style={{marginBottom: "20px"}}>
                     <h3>{data.TotalRecovered}</h3>
                 </div>
             </div>
