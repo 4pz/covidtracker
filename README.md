@@ -1,3 +1,3 @@
 # CovidTracker
 
-I created CovidTracker as a way to learn web development with ReactJS and how to create responsive websites with flexbox simultaneously.
+Website utilizing ReactJS and Flexbox. I created CovidTracker to introduce myself to ReactJS and learn responsive website development with Flexbox.
