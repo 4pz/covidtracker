@@ -7,6 +7,8 @@ import france from "../img/france.png"
 import russia from "../img/russia.png"
 
 function TopCountries() {
+    //yes, i know this many useState's is disgusting but i was too lazy to troubleshoot a diff error so i did this
+
     const [TotalConfirmed, setTotalConfirmed] = useState(0)
     const [TotalDeaths, setTotalDeaths] = useState(0)
     const [TotalConfirmed1, setTotalConfirmed1] = useState(0)

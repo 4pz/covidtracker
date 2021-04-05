@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react"
 import axios from "axios";
 
 function Global() {
+    //yes, i know this many useState's is disgusting but i was too lazy to troubleshoot a diff error so i did this
+
     const [data, setData] = useState(0)
     const [data1, setData1] = useState(0)
     const [data2, setData2] = useState(0)
